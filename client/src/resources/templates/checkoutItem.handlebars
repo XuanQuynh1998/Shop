@@ -1,0 +1,18 @@
+{{#each this.[0]}}
+<div class="checkout-product-item__container">
+    <div class="checkout-product-item__overview">
+        <div class="checkout-product-item__image-wrap">
+            <img class="checkout-product-item__image" src={{this.images.[0]}} alt="">
+        </div>
+        <div class="checkout-product-item__name-wrap">
+            <span class="checkout-product-item__name">{{this.name}}</span>
+        </div>
+    </div>
+    <div class="checkout-product-item__overview-info">
+        <div class="checkout-product-item__unit-price">{{showPrice this.price 0}}</div>
+        <div class="checkout-product-item__quantity">{{this.quantity}}</div>
+        <div class="checkout-product-item__total-price">{{totalPrice this.price this.quantity}}</div>
+    </div>
+    <input class="checkout-product-id" type="hidden" value={{this.slug}}>
+</div>
+{{/each}}

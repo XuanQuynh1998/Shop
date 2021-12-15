@@ -1,0 +1,52 @@
+{{#each this.addresses}}
+<div class="account-address">
+    <div class="col l-9 m-7 c-12">
+        <div class="account-address__container">
+            <div class="account-address__label">Họ Và Tên</div>
+            <div class="account-address__filed-container">
+                <div class="account-address__filed-name">{{this.fullName}}</div>
+                {{#ifEqual this.setDefault true}}
+                <div class="account-address__filed-default-badge">Mặc Định</div>
+                {{/ifEqual}}
+            </div>
+        </div>
+        <div class="account-address__container">
+            <div class="account-address__label">Số Điện Thoại</div>
+            <div class="account-address__text account-address__phone">{{this.phone}}</div>
+        </div>
+        <div class="account-address__container">
+            <div class="account-address__label">Địa Chỉ</div>
+            <div class="account-address__text account-address__address">
+                {{this.address.[0]}}</br>
+                {{this.address.[1]}}</br>
+                {{this.address.[2]}}</br>
+                {{this.address.[3]}}
+            </div>
+        </div>
+    </div>
+    <div class="col l-3 m-5 c-12">
+        <div class="account-address__buttons">
+            <div class="account-address__buttons--modifier">
+                <div class="account-address__buttons-action" address-attr="edit-address">
+                    <i class="far fa-edit account-address__buttons-action-icon"></i>
+                    <div class="account-address__buttons-action-text">Sửa</div>
+                </div>
+                {{#ifEqual this.setDefault false}}
+                <div class="account-address__buttons-action" address-attr="remove-address">
+                    <i class="fas fa-eraser account-address__buttons-action-icon"></i>
+                    <div class="account-address__buttons-action-text">Xóa</div>
+                </div>
+                {{/ifEqual}}
+            </div>
+            {{#ifEqual this.setDefault true}}
+            <button class="address__buttons--set-default btn btn--normal btn--disabled" address-attr="set-default"
+                disabled>Thiết Lập Mặc Định</button>
+            {{else}}
+            <button class="address__buttons--set-default btn btn--normal" address-attr="set-default">Thiết Lập Mặc
+                Định</button>
+            {{/ifEqual}}
+            <input type="hidden" value={{this._id}}>
+        </div>
+    </div>
+</div>
+{{/each}}

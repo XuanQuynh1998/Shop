@@ -1,0 +1,89 @@
+<div class="account-section-header">
+  <div class="account-section-header__title">Hồ Sơ Của Tôi</div>
+  <div class="account-section-header__subtitle">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
+</div>
+
+<div class="account-section-body">
+  <div class="account-section-profile__left">
+    <div class="account-section-profile__left-item">
+      <div class="account-section-profile__left-item-label">Tên Đăng Nhập</div>
+      <div class="account-section-profile__left-item-content">{{this.username}}</div>
+    </div>
+    <div class="account-section-profile__left-item">
+      <div class="account-section-profile__left-item-label">Tên</div>
+      <div class="account-section-profile__left-item-content">
+        <input type="text" class="account-section-profile__left-item-content--input" value='{{this.profile.name}}'>
+      </div>
+    </div>
+    <div class="account-section-profile__left-item">
+      <div class="account-section-profile__left-item-label">Số Điện Thoại</div>
+      <div class="account-section-profile__left-item-content">
+        <input type="text" class="account-section-profile__left-item-content--input" value={{this.profile.phone}}>
+      </div>
+    </div>
+    <div class="account-section-profile__left-item">
+      <div class="account-section-profile__left-item-label">Giới Tính</div>
+      <div class="account-section-profile__left-item-content">
+        <div class="account-section-profile__left-item-content--radio-wrap">
+          <input type="radio" class="account-section-profile__left-item-content--radio" value="male" name="gender"
+            {{checkedGender 'male' this.profile.gender}}>
+          <div class="account-section-profile__left-item-content-gender">Nam</div>
+        </div>
+        <div class="account-section-profile__left-item-content--radio-wrap">
+          <input type="radio" class="account-section-profile__left-item-content--radio" value="female" name="gender"
+            {{checkedGender 'female' this.profile.gender}}>
+          <div class="account-section-profile__left-item-content-gender">Nữ</div>
+        </div>
+        <div class="account-section-profile__left-item-content--radio-wrap">
+          <input type="radio" class="account-section-profile__left-item-content--radio" value="others" name="gender"
+            {{checkedGender 'others' this.profile.gender}}>
+          <div class="account-section-profile__left-item-content-gender">Khác</div>
+        </div>
+      </div>
+    </div>
+    <div class="account-section-profile__left-item">
+      <div class="account-section-profile__left-item-label">Ngày Sinh</div>
+      <div class="account-section-profile__left-item-content">
+        <div class="account-section-profile__left-item-content-birthday-wrap">
+          <div class="account-section-profile__left-item-content-birthday" profile-attr="select-day">
+            <div class="account-section-profile__left-item-content-birthday--input">
+              {{handleDate this.profile.birthday 'day'}}
+            </div>
+            <i class="fas fa-chevron-down account-section-profile__left-item-content-birthday-icon"></i>
+          </div>
+          <div class="account-section-profile__left-item-content-birthday" profile-attr="select-month">
+            <div class="account-section-profile__left-item-content-birthday--input">
+              {{handleDate this.profile.birthday 'month'}}
+            </div>
+            <i class="fas fa-chevron-down account-section-profile__left-item-content-birthday-icon"></i>
+          </div>
+          <div class="account-section-profile__left-item-content-birthday" profile-attr="select-year">
+            <div class="account-section-profile__left-item-content-birthday--input">
+              {{handleDate this.profile.birthday 'year'}}
+            </div>
+            <i class="fas fa-chevron-down account-section-profile__left-item-content-birthday-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="account-section-profile__invalid-date">Ngày không hợp lệ, vui lòng chỉnh ngày
+      chính xác</div>
+    <div class="account-section-profile__submit">
+      <button class="btn btn--primary account-section-profile__submit-btn" profile-attr="submit">Lưu</button>
+    </div>
+  </div>
+  <div class="account-section-profile__right">
+    <div class="avatar-uploader">
+      <div class="avatar-uploader__avatar">
+        <div class="avatar-uploader__avatar-image" style="background-image: url({{this.profile.avatar}});">
+        </div>
+      </div>
+      <input type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png">
+      <label for="avatar" class="avatar-uploader__avatar-btn" profile-attr="select-avatar">Chọn Ảnh</label>
+      <div class="avatar-uploader__avatar-text-wrap">
+        <div class="avatar-uploader__avatar-text">Dụng lượng file tối đa 1 MB</div>
+        <div class="avatar-uploader__avatar-text">Định dạng:.JPEG, .PNG</div>
+      </div>
+    </div>
+  </div>
+</div>

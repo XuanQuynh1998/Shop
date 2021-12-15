@@ -1,0 +1,78 @@
+<div class="account-section-header">
+  <div class="account-section-header__title">Địa Chỉ Của Tôi</div>
+  <button class="account-section-header__button btn btn--primary" address-attr="add-address">
+    <i class="fas fa-plus account-section-header__button-icon"></i>
+    <div class="account-section-header__button-text">
+      Thêm Địa Chỉ Mới
+    </div>
+  </button>
+</div>
+
+<div class="account-section-body">
+  <div class="account-address__no-address">
+    <i class="fas fa-map-marked-alt account-address__no-address-icon"></i>
+    <div class="account-address__no-address-text">Bạn chưa lưu địa chỉ nào.</div>
+  </div>
+  <div class="address-body">
+    {{>addressesItem}}
+  </div>
+</div>
+
+<div class="account-address-new-address__overlay">
+  <div class="account-address-new-address">
+    <div class="account-address-new-address__header">
+      <div class="account-address-new-address__header-title">Địa Chỉ Mới</div>
+    </div>
+    <div class="account-address-new-address__incorrect-form">
+      <i class="fas fa-exclamation-triangle account-address-new-address__incorrect-icon"></i>
+      <div class="account-address-new-address__incorrect-text">Vui lòng nhập đầy đủ thông tin</div>
+    </div>
+    <div class="account-address-new-address__main">
+      <div class="account-address-new-address__main-item">
+        <div class="account-address-new-address__main-item--input-wrap">
+          <input type="text" class="account-address-new-address__main-item--input" address-attr="input">
+          <div class="account-address-new-address__main-item--input-description">Họ và tên</div>
+        </div>
+      </div>
+      <div class="account-address-new-address__main-item">
+        <div class="account-address-new-address__main-item--input-wrap">
+          <input type="tel" pattern="[0-9]" class="account-address-new-address__main-item--input" address-attr="input">
+          <div class="account-address-new-address__main-item--input-description">Số điện thoại</div>
+        </div>
+      </div>
+      <div class="account-address-new-address__main-item" address-attr="select-province">
+        <div class="account-address-new-address__main-item--select">
+          <div class="account-address-new-address__main-item--description account-address-province">Tỉnh/Thành phố</div>
+          <i class="fas fa-caret-down account-address-new-address__main-item-icon"></i>
+        </div>
+      </div>
+      <div class="account-address-new-address__main-item" address-attr="select-district">
+        <div class="account-address-new-address__main-item--select">
+          <div class="account-address-new-address__main-item--description account-address-district">Quận/Huyện</div>
+          <i class="fas fa-caret-down account-address-new-address__main-item-icon"></i>
+        </div>
+      </div>
+      <div class="account-address-new-address__main-item" address-attr="select-ward">
+        <div class="account-address-new-address__main-item--select">
+          <div class="account-address-new-address__main-item--description account-address-ward">Phường/Xã</div>
+          <i class="fas fa-caret-down account-address-new-address__main-item-icon"></i>
+        </div>
+      </div>
+      <div class="account-address-new-address__main-item">
+        <div class="account-address-new-address__main-item--input-wrap">
+          <input type="text" class="account-address-new-address__main-item--input" address-attr="input">
+          <div class="account-address-new-address__main-item--input-description">Tòa nhà, Tên Đường...</div>
+        </div>
+      </div>
+      <div class="account-address-new-address__set-default">
+        <input id="address-checkbox" type="checkbox" class="account-address-new-address__set-default--checkbox">
+        <label for="address-checkbox" class="account-address-new-address__set-default-text">
+          Đặt làm địa chỉ mặc định</label>
+      </div>
+    </div>
+    <div class="account-address-new-address__footer">
+      <button class="account-address-new-address__footer-btn btn btn--normal" address-attr="back">TRỞ LẠI</button>
+      <button class="account-address-new-address__footer-btn btn btn--primary" address-attr="submit">HOÀN THÀNH</button>
+    </div>
+  </div>
+</div>

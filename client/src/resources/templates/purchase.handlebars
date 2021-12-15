@@ -1,0 +1,53 @@
+<div class="purchase-container">
+    <div class="account-section-header">
+        <div class="account-section-header__title">Đơn Mua</div>
+        <div class="account-section-header__subtitle">Quản lý đơn hàng của bạn</div>
+    </div>
+    <div class="purchase-search">
+        <i class="fas fa-search purchase-search__icon"></i>
+        <input type="text" placeholder="Tìm kiếm theo tên sản phẩm" class="purchase-search__input"
+            purchase-attr="search">
+    </div>
+    <div class="purchase-body">
+        {{#each this}}
+        <div class="purchase-item-container">
+            <div class="purchase-item">
+                {{#each this.orderDetail}}
+                <a href="/products/{{this.slug}}" class="purchase-item__detail-container" purchase-attr="product">
+                    <div class="purchase-item__detail-product">
+                        <div class="purchase-item__image-container">
+                            <img src={{this.images.[0]}} alt="" class="purchase-item__image">
+                        </div>
+                        <div class="purchase-item__detail-product-name">{{this.name}}</div>
+                    </div>
+                    <div class="purchase-item__detail-product-quantity">x {{this.quantity}}</div>
+                    <div class="purchase-item__detail-price">
+                        {{#ifEqual this.sale true}}
+                        <div class="purchase-item__detail-old-price">{{showPrice this.price this.salePrice}}</div>
+                        <div class="purchase-item__detail-current-price">{{showPrice this.price 0}}</div>
+                        {{else}}
+                        <div class="purchase-item__detail-current-price">{{showPrice this.price 0}}</div>
+                        {{/ifEqual}}
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+            <div class="purchase-item__shipping-fee-container">
+                <div class="purchase-item__shipping-fee-text">Phí vận chuyển: </div>
+                <div class="purchase-item__shipping-fee">{{showPrice this.shippingFee 0}}</div>
+            </div>
+            <div class="purchase-item__total-footer">
+                <div class="purchase-item__total-price-container">
+                    <i class="fas fa-dollar-sign purchase-item__total-price-icon"></i>
+                    <div class="purchase-item__total-price-text">Tổng số tiền: </div>
+                    <span class="purchase-item__total-price">{{orderPrice this}}</span>
+                </div>
+                <div class="purchase-item__order-date-container">
+                    <div class="purchase-item__order-date-text">Ngày đặt hàng: </div>
+                    <div class="purchase-item__order-date">{{convertOrderDate this.orderDate}}</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

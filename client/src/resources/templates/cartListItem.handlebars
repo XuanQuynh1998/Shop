@@ -1,0 +1,23 @@
+<li class="header__cart-item">
+    <a href="/products/{{slug}}" class="header__cart-item-link" header-attr="header-link">
+    <img src="{{images.[0]}}" alt=""
+         class="header__cart-img">
+    <div class="header__cart-item-info">
+        <div class="header__cart-item-head">
+            <h5 class="header__cart-item-name">{{name}}</h5>
+            <div class="header__cart-item-price-wrap">
+                <span class="header__cart-item-price">{{showPrice price 0}}</span>
+                <span class="header__cart-item-multiply">x</span>
+                <span class="header__cart-item-qnt">{{quantity}}</span>
+            </div>
+        </div>
+        <div class="header__cart-item-body">
+              <span class="header__cart-item-decription">
+                Phân loại: Bạc
+              </span>
+            <span class="header__cart-item-remove" product-attr="remove-cart-product">Xóa</span>
+        </div>
+    </div>
+    <input type="hidden" class="product-id" value={{slug}}>
+    </a>
+</li>

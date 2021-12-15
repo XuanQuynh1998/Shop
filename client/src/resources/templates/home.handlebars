@@ -1,0 +1,140 @@
+<div class="app__container">
+    <div class="grid wide">
+        <div class="row sm-gutter app__content">
+            <div class="col l-2 m-0 c-0">
+                <nav class="category">
+                    <h3 class="category__heading">Danh mục</h3>
+
+                    <ul class="category-list">
+                        <li class="category-item category-item--active">
+                            <a class="category-item__link" href="#" id='test'>Trang điểm mặt</a>
+                        </li>
+                        <li class="category-item">
+                            <a class="category-item__link" href="#">Trang điểm môi</a>
+                        </li>
+                        <li class="category-item">
+                            <a class="category-item__link" href="#">Trang điểm mắt</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col l-10 m-12 c-12">
+                <div class="home-filter hide-on-mobile-tablet">
+                    <span class="home-filter__label">Sắp xếp theo</span>
+                    <a class="home-filter__btn btn" home-attr="sort-button">Phổ biến</a>
+                    <a class="home-filter__btn btn" home-attr="sort-button">Mới nhất</a>
+                    <a class="home-filter__btn btn" home-attr="sort-button">Bán chạy</a>
+
+                    <div class="select-input">
+                        <span class="select-input__label">Giá</span>
+                        <i class="select-input-icon fas fa-angle-down"></i>
+
+                        <!-- List option -->
+                        <ul class="select-input__list">
+                            <li class="select-input__item">
+                                <a class="select-input__link" home-attr="sort-price">Giá: Thấp đến cao</a>
+                                <i class="select-input__selected fas fa-check"></i>
+                            </li>
+                            <li class="select-input__item">
+                                <a class="select-input__link" home-attr="sort-price">Giá: Cao đến thấp</a>
+                                <i class="select-input__selected fas fa-check"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="home-filter__page">
+                        <span class="home-filter__page-num">
+                            <span class="home-filter__page-current">{{this.page}}</span>/
+                            <span class="home-filter__page-number">{{this.allPages}}</span>
+                        </span>
+
+                        <div class="home-filter__page-control">
+                            <a class="home-filter__page-btn home-filter__prev-btn" home-attr="pagination-button">
+                                <i class="home-filter__page-icon fas fa-angle-left"></i>
+                            </a>
+                            <a class="home-filter__page-btn home-filter__next-btn" home-attr="pagination-button">
+                                <i class="home-filter__page-icon fas fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="mobile-category">
+                    <ul class="mobile-category__list">
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                        <li class="mobile-category__item">
+                            <a class="mobile-category__link" href="">Dụng cụ & thiết bị tiện ích</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="home-product">
+                    <!-- Grid -> row -> column -->
+                    <!-- Product item -->
+                    <div class="row sm-gutter home-products-data">
+                        <!-- Product item -->
+                        {{#each this}}
+                        {{>homeProducts}}
+                        {{/each}}
+
+                    </div>
+                </div>
+                <ul class="pagination home-product__pagination">
+                    <li class="pagination-item__navigator">
+                        <a class="pagination-item__link pagination-item__link-left-btn" home-attr="pagination-button">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                    {{#each this.paginationNumber}}
+                    <li class="pagination-item">
+                        {{#ifEqual this "..."}}
+                        <button class="pagination-item__link-btn disable-btn" home-attr="pagination-number"
+                            disabled>{{this}}</button>
+                        {{else}}
+                        <button class="pagination-item__link-btn" home-attr="pagination-number">{{this}}</button>
+                        {{/ifEqual}}
+                    </li>
+                    {{/each}}
+                    <li class="pagination-item__navigator">
+                        <a class="pagination-item__link pagination-item__link-right-btn" home-attr="pagination-button">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

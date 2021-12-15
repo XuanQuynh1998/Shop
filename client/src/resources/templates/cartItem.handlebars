@@ -1,0 +1,43 @@
+{{#each this}}
+<div class="cart-item">
+    <div class="cart-item__content-wrap">
+        <div class="cart-item__content">
+            <div class="cart-item__overview">
+                <div class="cart-item__checkbox">
+                    <label for="" class="cart__checkbox-label">
+                        {{#ifEqual this.checked true}}
+                        <input class="cart__checkbox" type="checkbox" cart-attr="select" checked>
+                        {{else}}
+                        <input class="cart__checkbox" type="checkbox" cart-attr="select">
+                        {{/ifEqual}}
+                    </label>
+                </div>
+                <a href="/products/{{this.slug}}" class="cart-item__overview-thumbnail-wrap" cart-attr="item-link">
+                    <div class="cart-item__overview-thumbnail" style="background-image: url({{this.images.[0]}})"></div>
+                </a>
+                <a href="/products/{{this.slug}}" class="cart-item__overview-name"
+                    cart-attr="item-link">{{this.name}}</a>
+            </div>
+            <div class="cart-item__purchase-overview">
+                <div class="cart-item__unit-price">{{showPrice this.price 0}}</div>
+                <div class="cart-item__quantity">
+                    <button class="item__quantity-number--minus" cart-attr="adjust-product">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="text" class="form-control item__quantity-input-number" cart-attr="input-product"
+                        name="item__quantity-number" value={{this.quantity}}>
+                    <button class="item__quantity-number--plus" cart-attr="adjust-product">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="cart-item__total-price">{{totalPrice this.price this.quantity}}</div>
+                <div class="cart-item__action" cart-attr="remove-product">Xóa</div>
+            </div>
+
+        </div>
+    </div>
+    <label>
+        <input type="hidden" class="product-id" value={{this.slug}}>
+    </label>
+</div>
+{{/each}}

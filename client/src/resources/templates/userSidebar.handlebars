@@ -1,0 +1,61 @@
+<div class="app__container">
+  <div class="grid wide">
+    <div class="row sm-gutter profile">
+      <div class="col l-2-4 m-12 c-12">
+        <div class="user-sidebar">
+          <div class="user-page-brief">
+            <a class="user-page-brief-avatar-wrap">
+              <img class="user-page-brief-avatar" src={{this.avatar}} alt="">
+            </a>
+            <div class="user-page-brief-right">
+              <div class="user-page-brief-right__username">{{this.username}}</div>
+            </div>
+          </div>
+
+          <div class="user-sidebar-menu">
+            <div class="user-sidebar-menu__dropdown">
+              <a href="/account/profile" class="user-sidebar-menu__header" sideBar-attr="profile">
+                <div class="user-sidebar-menu__header-icon-wrap user-sidebar-menu__header-icon-account">
+                  <i class="far fa-user user-sidebar-menu__header-icon"></i>
+                </div>
+                <div class="user-sidebar-menu__header-text">Tài Khoản Của Tôi</div>
+              </a>
+              <div class="user-sidebar-menu__dropdown-body">
+                <div class="user-sidebar-menu__dropdown-body-item">
+                  <a href="/account/profile" class="user-sidebar-menu__dropdown-body-item-link active"
+                    sideBar-attr="profile">Hồ Sơ</a>
+                  <a href="/account/addresses" class="user-sidebar-menu__dropdown-body-item-link"
+                    sideBar-attr="addresses">
+                    Địa Chỉ</a>
+                </div>
+              </div>
+            </div>
+            <div class="user-sidebar-menu__purchase">
+              <a class="user-sidebar-menu__header">
+                <div class="user-sidebar-menu__header-icon-wrap user-sidebar-menu__header-icon-purchase">
+                  <i class="fas fa-clipboard-list user-sidebar-menu__header-icon"></i>
+                </div>
+                <div class="user-sidebar-menu__header-text" sideBar-attr="purchase">Đơn mua</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col l-9 m-12 c-12">
+        <div class="account-section">
+          {{#ifEqual this.page 'profile' }}
+          {{>profile}}
+          {{/ifEqual}}
+
+          {{#ifEqual this.page 'addresses' }}
+          {{>addresses}}
+          {{/ifEqual}}
+   
+          {{#ifEqual this.page 'purchase' }}
+          {{>purchase}}
+          {{/ifEqual}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

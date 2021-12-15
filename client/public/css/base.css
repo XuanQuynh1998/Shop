@@ -1,0 +1,372 @@
+@charset "UTF-8";
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+  --primary-color: #ee4d2d;
+  --border-color: #dbdbdb;
+  --star-gold-color: #ffce3e;
+  --link-color: #0055aa;
+  --header-height: 120px;
+  --navbar-height: 34px;
+  --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+  --header-sort-bar-height: 46px;
+}
+
+* {
+  box-sizing: inherit;
+  /*Kế thừa từ thẻ chứa nó */
+}
+
+html {
+  font-size: 62.5%;
+  /*100% là 16px, 62.5% là 10px */
+  line-height: 1.6rem;
+  /*1.6rem là 16px*/
+  font-family: "Roboto", sans-serif;
+  /* font mặc định là roboto, nếu lỗi k lấy đc font trên mạng thì dùng sans-serif, chủng font k chân*/
+  box-sizing: border-box;
+  /*tất cả element đều kế thừa box-sizing: border-box*/
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.mr-12 {
+  margin-right: 12px;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.hide-on-pc {
+  display: none;
+}
+
+/*Responsive*/
+.grid__row {
+  display: flex;
+  flex-wrap: wrap;
+  /*tu xuong dong khi vuot qua man hinh */
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+/*animation*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes growth {
+  from {
+    transform: scale(var(--growth-from));
+  }
+  to {
+    transform: scale(var(--growth-to));
+  }
+}
+/*Modal*/
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  animation: fadeIn linear 0.1s;
+}
+
+.modal__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+  --growth-from: 0.7;
+  --growth-to: 1;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  /*z-index càng cao thì càng ở layer phía trên*/
+  animation: growth linear 0.1s;
+}
+
+/*button style*/
+.btn {
+  min-width: 124px;
+  height: 34px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 0 12px;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6rem;
+  background-color: var(--white-color);
+}
+
+.btn.btn--normal {
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.btn.btn--normal:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn--size-s {
+  height: 32px;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.btn.btn--primary {
+  /*1 element co 2 class*/
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.btn.btn--disabled {
+  color: #949494;
+  background-color: #ddd;
+  cursor: default;
+}
+
+.btn.btn--disabled:hover {
+  background-color: #ddd !important;
+}
+
+/*Selection */
+.select-input {
+  min-width: 200px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 2px;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.select-input::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  left: 0;
+  right: 0;
+  top: 20px;
+}
+
+.select-input__label {
+  font-size: 1.4rem;
+}
+
+.select-input-icon {
+  font-size: 1.4rem;
+  color: #9e9595;
+  position: relative;
+  top: 1px;
+}
+
+.select-input:hover .select-input__list {
+  display: block;
+}
+
+.select-input__list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25px;
+  border-radius: 2px;
+  background-color: var(--white-color);
+  padding: 8px 16px;
+  list-style: none;
+  display: none;
+  z-index: 1;
+}
+
+.selected {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-input__item.selected .select-input__selected {
+  display: initial !important;
+}
+
+.select-input__item.selected .select-input__link {
+  color: var(--primary-color);
+}
+
+.select-input__link {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 4px 0;
+}
+
+.select-input__link:hover {
+  color: var(--primary-color);
+}
+
+.select-input__selected {
+  color: var(--primary-color);
+  display: none !important;
+}
+
+.item__quantity-number--minus,
+.item__quantity-number--plus,
+.item__quantity-input-number {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  background-color: transparent;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.item__quantity-number--minus {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.item__quantity-number--plus {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.item__quantity-number--minus i,
+.item__quantity-number--plus i {
+  font-size: 1rem;
+}
+
+.item__quantity-number--minus:hover,
+.item__quantity-number--plus:hover {
+  cursor: pointer;
+}
+
+.item__quantity-input-number {
+  width: 50px;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+/*pagination*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.pagination-item,
+.pagination-item__navigator {
+  margin: 0 12px;
+}
+
+.pagination-item--active .pagination-item__link-btn {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+  background-color: #ed5c3f;
+}
+
+.pagination-item__link,
+.pagination-item__link-btn {
+  --height: 30px;
+  display: block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #939393;
+  min-width: 40px;
+  height: var(--height);
+  line-height: var(--height);
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.pagination-item__icon {
+  line-height: inherit !important;
+}
+
+.show-flex {
+  display: flex !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.toast {
+  z-index: 10;
+  width: 400px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.55);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+  display: none;
+}
+
+.toast__icon {
+  font-size: 5rem;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+}
+
+.toast__message {
+  font-size: 1.7rem;
+  color: var(--white-color);
+  display: block;
+  text-align: center;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+}
+
+.disable-btn {
+  cursor: default;
+}
+
+/*# sourceMappingURL=base.css.map */
