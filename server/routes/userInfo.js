@@ -3,6 +3,8 @@ const router = express.Router();
 
 const userInfoController = require("../controllers/userInfoController.js");
 
+///testtt
+
 router.get("/profile", userInfoController.profile);
 router.post("/profile/update", userInfoController.updateProfile);
 router.get("/get_avatar", userInfoController.getUserAvatar);
